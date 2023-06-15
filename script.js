@@ -14,6 +14,21 @@ function buscarCocktail() {
 
 }
 
+document.getElementById('buscar-boton').addEventListener('click', buscarRandomCocktail);
+
+function buscarRandomCocktail() {
+    ;
+    fetch('https://inesdelgadohernandez.somee.com/api/cocktail/aleatorio',
+        {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then((response) => response.json())
+        .then((data) => mostrarData(data));
+}
+
 function mostrarData(data) {
     console.log(data);
 
